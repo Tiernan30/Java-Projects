@@ -1,0 +1,24 @@
+@Lat	51.17
+@Lon	-115.31
+@Zoom	11
+@mercX	367	
+@mercY	383
+
+#possible functions: f = flying, r = token movement(Room-in-Hand), t = teleportation, m = minimap, n = navigation
+@functions	frtm
+
+#Simple coin setup
+
+@coin	id	01	x	447	z	780	offset	1.2	b
+@coin	id	02	x	813	z	187	offset	1.6	b
+@coin	id	03	x	149	z	854	offset	1.3	b
+@coin	id	04	x	387	z	449	offset	1.7	b
+@coin	id	05	x	974	z	873	offset	2.4	b
+@coin	id	06	x	143	z	872	offset	1.2	c
+@coin	id	07	x	417	z	168	offset	2.4	c
+@coin	id	08	x	374	z	468	offset	1.3	c
+@coin	id	09	x	578	z	368	offset	1.2	c
+@coin	id	10	x	198	z	525	offset	1.3	c
+
+@outfile	sample_tests.csv
+@pname	Dev
