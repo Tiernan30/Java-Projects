@@ -9,7 +9,7 @@ public class ArcLaserPointer : MonoBehaviour
     private SteamVR_TrackedObject trackedObj;
     public GameObject laserPrefab; //change to list? List<GameObject> laserPrefab?
     private List<GameObject> laser;
-    private Transform[] laserTransform;
+    private List<Transform> laserTransform;
     private Vector3 hitPoint;
     public Terrain Terr;
     public Generate_Terrain map;
@@ -39,10 +39,9 @@ public class ArcLaserPointer : MonoBehaviour
         for (int i = 0; i < 100; i++)
         {
             laser.Add(Instantiate(laserPrefab));
-            laserTransform[i] = laser.ElementAt(i).transform;
+            laserTransform.Add(laser.ElementAt(i).transform);
         }
-        reticle = Instantiate(teleportReticlePrefab);
-        teleportReticleTransform = reticle.transform;
+        
         teleTimeType = new Vector2();
         
     }
@@ -117,10 +116,10 @@ public class ArcLaserPointer : MonoBehaviour
 // End of additional input in this function
 
             //change paraments
-            if (hit = arcedRaycast(points, out hitnum))
+            if (hit = ArcedRaycast(points, out hitnum))
             {
                 hitPoint = hit.point;
-                showArcedLaser(points, hitPoint, hitnum);
+                ShowArcedLaser(points, hitPoint, hitnum, hit);
 
                 //don't touch
                 reticle.SetActive(true);
@@ -182,9 +181,12 @@ public class ArcLaserPointer : MonoBehaviour
 
     Vector3[] arcPoints(float velocityX, float velocityY)
     {
-        float theta = (90 - Vector3.Angle(Controller.Forward, Vector3.Down));
+        float theta = (90 - Vector3.Angle(Controller.Forward, Vector3.down));
         float g = 1;
-        Vector3 initial = new Vector3 { X = 0, Y = 0, Z = 0 };
+        Vector3 initial = new Vector3 {};
+        initial.x = 0;
+        initial.y = 0;
+        initial.z = 0;
         Vector3[] P = new Vector3[100];
         for (int i = 0; i < 100; i++)
         {
@@ -203,32 +205,30 @@ public class ArcLaserPointer : MonoBehaviour
     //can't be a copy of showLaser, change functionality to go through the list
     //check generate coins to see
     //pi - pi+1 for the position and look at for showarcedlaser
-    private void showArcedLaser(Vector3[] p, Vector3 hitPoint, int hitnumber)
+    private void ShowArcedLaser(Vector3[] p, Vector3 hitPoint, int hitnumber, RaycastHit hit)
     {
+
         //replace hit.distance with hitnumber?
         laser.SetActive(true); //needs to set active the list of lasers
-        if(hitnumber == null)
+        if (hitnumber != -1)
         {
-            break;
-        }
-        for (int i = 0; i <= hitnumber; i++)
-        {
+
             
-            if(p[i+1] == hitPoint)
+            for (int i = 0; i < hitnumber; i++)
             {
-                laserTransform[i].position = Vector3.Lerp(p[i], p[i + 1], .5f);
-                laserTransform[i].LookAt(p[i + 1]);
-                laserTransform[i].localScale = new Vector3(laserTransform[i].localScale.x, laserTransform[i].localScale.y,
-                    hit.distance);
-                break;
+               float hitLength = (p[i] - p[i + 1]).magnitude;
+                
+              
+                    laserTransform[i].position = Vector3.Lerp(p[i], p[i + 1], .5f);
+                    laserTransform[i].LookAt(p[i + 1]);
+                    laserTransform[i].localScale = new Vector3(laserTransform[i].localScale.x, laserTransform[i].localScale.y,
+                       hitLength );
+                
             }
-            else
-            {
-                laserTransform[i].position = Vector3.Lerp(p[i], p[i + 1], .5f);
-                laserTransform[i].LookAt(p[i + 1]);
-                laserTransform[i].localScale = new Vector3(laserTransform[i].localScale.x, laserTransform[i].localScale.y,
-                    hit.distance);
-            }
+            laserTransform[hitnumber].position = Vector3.Lerp(p[i], hitPoint, .5f);
+            laserTransform[hitnumber].LookAt(hitPoint);
+            laserTransform[hitnumber].localScale = new Vector3(laserTransform[hitnumber].localScale.x, laserTransform[hitnumber].localScale.y,
+                hit.distance);
         }
 
     }
@@ -238,12 +238,16 @@ public class ArcLaserPointer : MonoBehaviour
     //call in place of physics.raycast, should work.
     //for visualization maybe change null to hit w/ no collision, then check for that collision object later
     //since if null object the reticle could be shown as an X.
-    private RaycastHit arcedRaycast(Vector3[] p, out int hitnumber)
+    private RaycastHit ArcedRaycast(Vector3[] p, out int hitnumber)
     {
-        for (int i = 1; i < p.length; i++)
+        Vector3 path;
+        RaycastHit hit = new RaycastHit();
+        
+        for (int i = 1; i < p.Length; i++)
         {
-            path = p[i - 1] - p[i];
-            if (Physics.Raycast(p[i], path, out hit, path.length))
+           path = p[i - 1] - p[i];
+            
+            if (Physics.Raycast(p[i], path, out hit, path.magnitude))
             {
                 hitnumber = i;
                 return hit;
@@ -251,7 +255,8 @@ public class ArcLaserPointer : MonoBehaviour
 
            
         }
-        return null;
+        hitnumber = -1;
+        return hit;
     }
 }
 

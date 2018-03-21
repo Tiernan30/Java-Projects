@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A98C787-CD9A-3A54-ADBD-22352117EBCC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp.dll</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2017.2.0f3</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_2_0;UNITY_2017_2;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_2_0;UNITY_2017_2;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WebModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WebModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StyleSheetsModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticlesLegacyModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Vuforia.UnityExtensions">
+      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIAutomation">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GoogleAudioSpatializer">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>Assets/System.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:/Users/TierC/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>C:/Users/TierC/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\ArcLaserPointer.cs" />
+    <Compile Include="Assets\Scripts\ArcLaserPointer.cs" />
+    <Compile Include="Assets\Scripts\basicToken.cs" />
+    <Compile Include="Assets\Scripts\beaconScript.cs" />
+    <Compile Include="Assets\Scripts\coinBank.cs" />
+    <Compile Include="Assets\Scripts\collect_tiles.cs" />
+    <Compile Include="Assets\Scripts\Control_lat_long.cs" />
+    <Compile Include="Assets\Scripts\control_zoom.cs" />
+    <Compile Include="Assets\Scripts\ControllerGrabObject.cs" />
+    <Compile Include="Assets\Scripts\controllerGrabToken.cs" />
+    <Compile Include="Assets\Scripts\FunctionController.cs" />
+    <Compile Include="Assets\Scripts\Generate_Terrain.cs" />
+    <Compile Include="Assets\Scripts\GoogleStyleMovement.cs" />
+    <Compile Include="Assets\Scripts\LaserPointer.cs" />
+    <Compile Include="Assets\Scripts\Logger.cs" />
+    <Compile Include="Assets\Scripts\mapTile.cs" />
+    <Compile Include="Assets\Scripts\miniMap.cs" />
+    <Compile Include="Assets\Scripts\monoMiniMap.cs" />
+    <Compile Include="Assets\Scripts\OneEuroFilter.cs" />
+    <Compile Include="Assets\Scripts\oneKMLabel.cs" />
+    <Compile Include="Assets\Scripts\pointBack.cs" />
+    <Compile Include="Assets\Scripts\ScaleLabel.cs" />
+    <Compile Include="Assets\Scripts\showDirection.cs" />
+    <Compile Include="Assets\Scripts\TextureScale.cs" />
+    <Compile Include="Assets\Scripts\ThreeDConeDrag.cs" />
+    <Compile Include="Assets\Scripts\tracker_guide.cs" />
+    <Compile Include="Assets\Scripts\ViveControllerInputTest.cs" />
+    <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
+    <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
+    <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />
+    <Compile Include="Assets\SteamVR\Extras\SteamVR_TestThrow.cs" />
+    <Compile Include="Assets\SteamVR\Extras\SteamVR_TestTrackedCamera.cs" />
+    <Compile Include="Assets\SteamVR\Extras\SteamVR_TrackedController.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\BodyCollider.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\CircularDrive.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\ComplexThrowable.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\ControllerHoverHighlight.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\CustomEvents.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\DebugUI.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\DestroyOnDetachedFromHand.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\DestroyOnParticleSystemDeath.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\DestroyOnTriggerEnter.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\DistanceHaptics.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\DontDestroyOnLoad.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\EnumFlags.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\FallbackCameraController.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Hand.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\HapticRack.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\HideOnHandFocusLost.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\IgnoreHovering.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\InputModule.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Interactable.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\InteractableButtonEvents.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\InteractableHoverEvents.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\ItemPackage.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\ItemPackageReference.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\ItemPackageSpawner.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearAnimation.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearAnimator.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearAudioPitch.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearBlendshape.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearDisplacement.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearDrive.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearMapping.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Player.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\PlaySound.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\SeeThru.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\SleepOnAwake.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\SoundDeparent.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\SoundPlayOneshot.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\SpawnAndAttachAfterControllerIsTracking.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\SpawnAndAttachToHand.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\SpawnRenderModel.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Throwable.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\UIElement.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Unparent.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Util.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\VelocityEstimator.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Hints\Scripts\ControllerButtonHints.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\ArcheryTarget.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\Arrow.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\ArrowHand.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\ArrowheadRotation.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\Balloon.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\BalloonColliders.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\BalloonHapticBump.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\BalloonSpawner.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\ExplosionWobble.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\FireSource.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\Longbow.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\SoundBowClick.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Samples\Scripts\ControllerHintsExample.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Samples\Scripts\InteractableExample.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Teleport\Scripts\AllowTeleportWhileAttachedToHand.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Teleport\Scripts\ChaperoneInfo.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Teleport\Scripts\IgnoreTeleportTrace.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Teleport\Scripts\Teleport.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Teleport\Scripts\TeleportArc.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Teleport\Scripts\TeleportArea.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Teleport\Scripts\TeleportMarkerBase.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Teleport\Scripts\TeleportPoint.cs" />
+    <Compile Include="Assets\SteamVR\Plugins\openvr_api.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Camera.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_CameraFlip.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_CameraMask.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Controller.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_ControllerManager.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Ears.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Events.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_ExternalCamera.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Fade.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Frustum.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_GameView.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_IK.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_LoadLevel.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Menu.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Overlay.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_PlayArea.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Render.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_RenderModel.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Skybox.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_SphericalProjection.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Stats.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_TestController.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackedCamera.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
+    <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
+    <Compile Include="Assets\Vive-Teleporter\Scripts\BorderRenderer.cs" />
+    <Compile Include="Assets\Vive-Teleporter\Scripts\ParabolicPointer.cs" />
+    <Compile Include="Assets\Vive-Teleporter\Scripts\TeleportTest.cs" />
+    <Compile Include="Assets\Vive-Teleporter\Scripts\TeleportVive.cs" />
+    <Compile Include="Assets\Vive-Teleporter\Scripts\ViveNavMesh.cs" />
+    <Compile Include="Assets\Vive-Teleporter\Scripts\ViveNavMeshEditor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Materials\beaconShader.shader" />
+    <None Include="Assets\Materials\transparentTerrainShader.shader" />
+    <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
+    <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\SeeThru.shader" />
+    <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\Silhouette.shader" />
+    <None Include="Assets\SteamVR\InteractionSystem\Hints\Shaders\ControllerButtonHints.shader" />
+    <None Include="Assets\SteamVR\InteractionSystem\Readme_InteractionSystem.txt" />
+    <None Include="Assets\SteamVR\InteractionSystem\Teleport\Shaders\Highlight.shader" />
+    <None Include="Assets\SteamVR\Resources\SteamVR_AlphaOut.shader" />
+    <None Include="Assets\SteamVR\Resources\SteamVR_ClearAll.shader" />
+    <None Include="Assets\SteamVR\Resources\SteamVR_ColorOut.shader" />
+    <None Include="Assets\SteamVR\Resources\SteamVR_Fade.shader" />
+    <None Include="Assets\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
+    <None Include="Assets\SteamVR\readme.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestBeacons0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestBeacons1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestBeacons2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestBeacons3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestBeacons4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestBeacons5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestBeacons6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestBeacons7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestBeacons8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestBeacons9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestCoins0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestCoins1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestCoins2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestCoins3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestCoins4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestCoins5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestCoins6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestCoins7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestCoins8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\combinedTestCoins9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeacons0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeacons1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeacons2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeacons3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeacons4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeacons5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeacons6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeacons7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeacons8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeacons9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeaconsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeaconsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeaconsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeaconsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeaconsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeaconsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeaconsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeaconsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeaconsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestBeaconsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoins0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoins1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoins2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoins3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoins4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoins5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoins6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoins7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoins8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoins9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoinsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoinsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoinsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoinsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoinsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoinsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoinsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoinsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoinsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\flightTestCoinsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeacons0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeacons1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeacons2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeacons3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeacons4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeacons5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeacons6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeacons7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeacons8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeacons9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeaconsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeaconsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeaconsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeaconsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeaconsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeaconsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeaconsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeaconsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeaconsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestBeaconsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoins0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoins1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoins2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoins3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoins4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoins5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoins6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoins7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoins8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoins9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoinsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoinsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoinsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoinsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoinsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoinsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoinsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoinsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoinsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\roomTestCoinsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeacons0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeacons1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeacons2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeacons3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeacons4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeacons5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeacons6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeacons7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeacons8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeacons9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeaconsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeaconsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeaconsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeaconsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeaconsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeaconsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeaconsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeaconsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeaconsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestBeaconsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoins0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoins1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoins2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoins3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoins4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoins5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoins6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoins7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoins8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoins9dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoinsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoinsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoinsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoinsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoinsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoinsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoinsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoinsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoinsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\Assets\Test_Files\teleTestCoinsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestBeacons0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestBeacons1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestBeacons2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestBeacons3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestBeacons4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestBeacons5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestBeacons6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestBeacons7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestBeacons8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestBeacons9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestCoins0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestCoins1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestCoins2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestCoins3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestCoins4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestCoins5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestCoins6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestCoins7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestCoins8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\combinedTestCoins9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeacons0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeacons1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeacons2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeacons3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeacons4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeacons5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeacons6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeacons7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeacons8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeacons9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeaconsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeaconsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeaconsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeaconsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeaconsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeaconsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeaconsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeaconsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeaconsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestBeaconsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoins0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoins1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoins2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoins3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoins4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoins5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoins6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoins7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoins8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoins9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoinsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoinsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoinsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoinsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoinsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoinsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoinsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoinsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoinsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\flightTestCoinsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeacons0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeacons1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeacons2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeacons3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeacons4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeacons5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeacons6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeacons7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeacons8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeacons9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeaconsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeaconsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeaconsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeaconsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeaconsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeaconsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeaconsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeaconsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeaconsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestBeaconsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoins0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoins1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoins2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoins3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoins4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoins5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoins6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoins7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoins8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoins9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoinsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoinsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoinsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoinsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoinsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoinsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoinsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoinsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoinsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\roomTestCoinsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeacons0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeacons1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeacons2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeacons3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeacons4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeacons5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeacons6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeacons7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeacons8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeacons9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeaconsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeaconsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeaconsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeaconsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeaconsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeaconsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeaconsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeaconsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeaconsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestBeaconsNM9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoins0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoins1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoins2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoins3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoins4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoins5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoins6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoins7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoins8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoins9dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoinsNM0dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoinsNM1dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoinsNM2dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoinsNM3dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoinsNM4dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoinsNM5dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoinsNM6dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoinsNM7dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoinsNM8dev.txt" />
+    <None Include="Assets\TiledMaps-master\test_files\teleTestCoinsNM9dev.txt" />
+    <None Include="Assets\Vive-Teleporter\LICENSE.txt" />
+    <None Include="Assets\Vive-Teleporter\README.txt" />
+    <None Include="Assets\Vive-Teleporter\Shader\FadeBlack.shader" />
+    <None Include="Assets\Vive-Teleporter\Shader\TransparentNoOverlap.shader" />
+    <None Include="Assets\Vive-Teleporter\Shader\ViveMovementBorder.shader" />
+    <None Include="Assets\Vive-Teleporter\Shader\ViveMovementGrid.shader" />
+    <None Include="Assets\sample_coins.txt" />
+    <None Include="Assets\test_files\combinedTestBeacons0dev.txt" />
+    <None Include="Assets\test_files\combinedTestBeacons1dev.txt" />
+    <None Include="Assets\test_files\combinedTestBeacons2dev.txt" />
+    <None Include="Assets\test_files\combinedTestBeacons3dev.txt" />
+    <None Include="Assets\test_files\combinedTestBeacons4dev.txt" />
+    <None Include="Assets\test_files\combinedTestBeacons5dev.txt" />
+    <None Include="Assets\test_files\combinedTestBeacons6dev.txt" />
+    <None Include="Assets\test_files\combinedTestBeacons7dev.txt" />
+    <None Include="Assets\test_files\combinedTestBeacons8dev.txt" />
+    <None Include="Assets\test_files\combinedTestBeacons9dev.txt" />
+    <None Include="Assets\test_files\combinedTestCoins0dev.txt" />
+    <None Include="Assets\test_files\combinedTestCoins1dev.txt" />
+    <None Include="Assets\test_files\combinedTestCoins2dev.txt" />
+    <None Include="Assets\test_files\combinedTestCoins3dev.txt" />
+    <None Include="Assets\test_files\combinedTestCoins4dev.txt" />
+    <None Include="Assets\test_files\combinedTestCoins5dev.txt" />
+    <None Include="Assets\test_files\combinedTestCoins6dev.txt" />
+    <None Include="Assets\test_files\combinedTestCoins7dev.txt" />
+    <None Include="Assets\test_files\combinedTestCoins8dev.txt" />
+    <None Include="Assets\test_files\combinedTestCoins9dev.txt" />
+    <None Include="Assets\test_files\flightTestBeacons0dev.txt" />
+    <None Include="Assets\test_files\flightTestBeacons1dev.txt" />
+    <None Include="Assets\test_files\flightTestBeacons2dev.txt" />
+    <None Include="Assets\test_files\flightTestBeacons3dev.txt" />
+    <None Include="Assets\test_files\flightTestBeacons4dev.txt" />
+    <None Include="Assets\test_files\flightTestBeacons5dev.txt" />
+    <None Include="Assets\test_files\flightTestBeacons6dev.txt" />
+    <None Include="Assets\test_files\flightTestBeacons7dev.txt" />
+    <None Include="Assets\test_files\flightTestBeacons8dev.txt" />
+    <None Include="Assets\test_files\flightTestBeacons9dev.txt" />
+    <None Include="Assets\test_files\flightTestBeaconsNM0dev.txt" />
+    <None Include="Assets\test_files\flightTestBeaconsNM1dev.txt" />
+    <None Include="Assets\test_files\flightTestBeaconsNM2dev.txt" />
+    <None Include="Assets\test_files\flightTestBeaconsNM3dev.txt" />
+    <None Include="Assets\test_files\flightTestBeaconsNM4dev.txt" />
+    <None Include="Assets\test_files\flightTestBeaconsNM5dev.txt" />
+    <None Include="Assets\test_files\flightTestBeaconsNM6dev.txt" />
+    <None Include="Assets\test_files\flightTestBeaconsNM7dev.txt" />
+    <None Include="Assets\test_files\flightTestBeaconsNM8dev.txt" />
+    <None Include="Assets\test_files\flightTestBeaconsNM9dev.txt" />
+    <None Include="Assets\test_files\flightTestCoins0dev.txt" />
+    <None Include="Assets\test_files\flightTestCoins1dev.txt" />
+    <None Include="Assets\test_files\flightTestCoins2dev.txt" />
+    <None Include="Assets\test_files\flightTestCoins3dev.txt" />
+    <None Include="Assets\test_files\flightTestCoins4dev.txt" />
+    <None Include="Assets\test_files\flightTestCoins5dev.txt" />
+    <None Include="Assets\test_files\flightTestCoins6dev.txt" />
+    <None Include="Assets\test_files\flightTestCoins7dev.txt" />
+    <None Include="Assets\test_files\flightTestCoins8dev.txt" />
+    <None Include="Assets\test_files\flightTestCoins9dev.txt" />
+    <None Include="Assets\test_files\flightTestCoinsNM0dev.txt" />
+    <None Include="Assets\test_files\flightTestCoinsNM1dev.txt" />
+    <None Include="Assets\test_files\flightTestCoinsNM2dev.txt" />
+    <None Include="Assets\test_files\flightTestCoinsNM3dev.txt" />
+    <None Include="Assets\test_files\flightTestCoinsNM4dev.txt" />
+    <None Include="Assets\test_files\flightTestCoinsNM5dev.txt" />
+    <None Include="Assets\test_files\flightTestCoinsNM6dev.txt" />
+    <None Include="Assets\test_files\flightTestCoinsNM7dev.txt" />
+    <None Include="Assets\test_files\flightTestCoinsNM8dev.txt" />
+    <None Include="Assets\test_files\flightTestCoinsNM9dev.txt" />
+    <None Include="Assets\test_files\roomTestBeacons0dev.txt" />
+    <None Include="Assets\test_files\roomTestBeacons1dev.txt" />
+    <None Include="Assets\test_files\roomTestBeacons2dev.txt" />
+    <None Include="Assets\test_files\roomTestBeacons3dev.txt" />
+    <None Include="Assets\test_files\roomTestBeacons4dev.txt" />
+    <None Include="Assets\test_files\roomTestBeacons5dev.txt" />
+    <None Include="Assets\test_files\roomTestBeacons6dev.txt" />
+    <None Include="Assets\test_files\roomTestBeacons7dev.txt" />
+    <None Include="Assets\test_files\roomTestBeacons8dev.txt" />
+    <None Include="Assets\test_files\roomTestBeacons9dev.txt" />
+    <None Include="Assets\test_files\roomTestBeaconsNM0dev.txt" />
+    <None Include="Assets\test_files\roomTestBeaconsNM1dev.txt" />
+    <None Include="Assets\test_files\roomTestBeaconsNM2dev.txt" />
+    <None Include="Assets\test_files\roomTestBeaconsNM3dev.txt" />
+    <None Include="Assets\test_files\roomTestBeaconsNM4dev.txt" />
+    <None Include="Assets\test_files\roomTestBeaconsNM5dev.txt" />
+    <None Include="Assets\test_files\roomTestBeaconsNM6dev.txt" />
+    <None Include="Assets\test_files\roomTestBeaconsNM7dev.txt" />
+    <None Include="Assets\test_files\roomTestBeaconsNM8dev.txt" />
+    <None Include="Assets\test_files\roomTestBeaconsNM9dev.txt" />
+    <None Include="Assets\test_files\roomTestCoins0dev.txt" />
+    <None Include="Assets\test_files\roomTestCoins1dev.txt" />
+    <None Include="Assets\test_files\roomTestCoins2dev.txt" />
+    <None Include="Assets\test_files\roomTestCoins3dev.txt" />
+    <None Include="Assets\test_files\roomTestCoins4dev.txt" />
+    <None Include="Assets\test_files\roomTestCoins5dev.txt" />
+    <None Include="Assets\test_files\roomTestCoins6dev.txt" />
+    <None Include="Assets\test_files\roomTestCoins7dev.txt" />
+    <None Include="Assets\test_files\roomTestCoins8dev.txt" />
+    <None Include="Assets\test_files\roomTestCoins9dev.txt" />
+    <None Include="Assets\test_files\roomTestCoinsNM0dev.txt" />
+    <None Include="Assets\test_files\roomTestCoinsNM1dev.txt" />
+    <None Include="Assets\test_files\roomTestCoinsNM2dev.txt" />
+    <None Include="Assets\test_files\roomTestCoinsNM3dev.txt" />
+    <None Include="Assets\test_files\roomTestCoinsNM4dev.txt" />
+    <None Include="Assets\test_files\roomTestCoinsNM5dev.txt" />
+    <None Include="Assets\test_files\roomTestCoinsNM6dev.txt" />
+    <None Include="Assets\test_files\roomTestCoinsNM7dev.txt" />
+    <None Include="Assets\test_files\roomTestCoinsNM8dev.txt" />
+    <None Include="Assets\test_files\roomTestCoinsNM9dev.txt" />
+    <None Include="Assets\test_files\teleTestBeacons0dev.txt" />
+    <None Include="Assets\test_files\teleTestBeacons1dev.txt" />
+    <None Include="Assets\test_files\teleTestBeacons2dev.txt" />
+    <None Include="Assets\test_files\teleTestBeacons3dev.txt" />
+    <None Include="Assets\test_files\teleTestBeacons4dev.txt" />
+    <None Include="Assets\test_files\teleTestBeacons5dev.txt" />
+    <None Include="Assets\test_files\teleTestBeacons6dev.txt" />
+    <None Include="Assets\test_files\teleTestBeacons7dev.txt" />
+    <None Include="Assets\test_files\teleTestBeacons8dev.txt" />
+    <None Include="Assets\test_files\teleTestBeacons9dev.txt" />
+    <None Include="Assets\test_files\teleTestBeaconsNM0dev.txt" />
+    <None Include="Assets\test_files\teleTestBeaconsNM1dev.txt" />
+    <None Include="Assets\test_files\teleTestBeaconsNM2dev.txt" />
+    <None Include="Assets\test_files\teleTestBeaconsNM3dev.txt" />
+    <None Include="Assets\test_files\teleTestBeaconsNM4dev.txt" />
+    <None Include="Assets\test_files\teleTestBeaconsNM5dev.txt" />
+    <None Include="Assets\test_files\teleTestBeaconsNM6dev.txt" />
+    <None Include="Assets\test_files\teleTestBeaconsNM7dev.txt" />
+    <None Include="Assets\test_files\teleTestBeaconsNM8dev.txt" />
+    <None Include="Assets\test_files\teleTestBeaconsNM9dev.txt" />
+    <None Include="Assets\test_files\teleTestCoins0dev.txt" />
+    <None Include="Assets\test_files\teleTestCoins1dev.txt" />
+    <None Include="Assets\test_files\teleTestCoins2dev.txt" />
+    <None Include="Assets\test_files\teleTestCoins3dev.txt" />
+    <None Include="Assets\test_files\teleTestCoins4dev.txt" />
+    <None Include="Assets\test_files\teleTestCoins5dev.txt" />
+    <None Include="Assets\test_files\teleTestCoins6dev.txt" />
+    <None Include="Assets\test_files\teleTestCoins7dev.txt" />
+    <None Include="Assets\test_files\teleTestCoins8dev.txt" />
+    <None Include="Assets\test_files\teleTestCoins9dev.txt" />
+    <None Include="Assets\test_files\teleTestCoinsNM0dev.txt" />
+    <None Include="Assets\test_files\teleTestCoinsNM1dev.txt" />
+    <None Include="Assets\test_files\teleTestCoinsNM2dev.txt" />
+    <None Include="Assets\test_files\teleTestCoinsNM3dev.txt" />
+    <None Include="Assets\test_files\teleTestCoinsNM4dev.txt" />
+    <None Include="Assets\test_files\teleTestCoinsNM5dev.txt" />
+    <None Include="Assets\test_files\teleTestCoinsNM6dev.txt" />
+    <None Include="Assets\test_files\teleTestCoinsNM7dev.txt" />
+    <None Include="Assets\test_files\teleTestCoinsNM8dev.txt" />
+    <None Include="Assets\test_files\teleTestCoinsNM9dev.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>
