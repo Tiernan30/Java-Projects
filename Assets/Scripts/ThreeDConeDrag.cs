@@ -5,12 +5,20 @@ using UnityEngine;
 public class ThreeDConeDrag : MonoBehaviour {
 
     private SteamVR_TrackedObject trackedObj;
+
     public GameObject laserPrefab;
     private GameObject laser;
     private Transform laserTransform;
+
     public GameObject preLaserPrefab;
     private GameObject preLaser;
     private Transform preLaserTransform;
+
+    public GameObject teleportReticlePrefab;
+    private GameObject reticle;
+    private Transform teleportReticleTransform;
+    public Vector3 teleportReticleOffset;
+
     private Vector3 hitPoint;
     private RaycastHit hit;
     private Vector3 grabForward;
@@ -19,6 +27,8 @@ public class ThreeDConeDrag : MonoBehaviour {
     private Vector3 grabPath;
     private Vector3 feetPoint;
     private Vector3 grabRot;
+    private int grabLength;
+    private float cone_length;
     private float lastMovementRatio;
     private float lastRotAngle;
     private Transform localPlane;
@@ -29,16 +39,11 @@ public class ThreeDConeDrag : MonoBehaviour {
     OneEuroFilter stepFilter;
     float filterFrequency = 60f;
 
-    int grabLength;
-
+    
 
     public Transform cameraRigTransform;
     public Transform headTransform;
 
-    public GameObject teleportReticlePrefab;
-    private GameObject reticle;
-    private Transform teleportReticleTransform;
-    public Vector3 teleportReticleOffset;
     private bool triggerDown;
 
     //private Vector2 teleTimeType;
@@ -52,11 +57,14 @@ public class ThreeDConeDrag : MonoBehaviour {
         preLaser = Instantiate(preLaserPrefab);
         preLaserTransform = preLaser.transform;
 
+        reticle = Instantiate(teleportReticlePrefab);
+        teleportReticleTransform = reticle.transform;
 
         planeObject = new GameObject();
         localPlane = planeObject.transform;
 
-        grabLength = 100;
+        grabLength = 800;
+        cone_length = 15;
         lastMovementRatio = 0;
 
         reticle = Instantiate(teleportReticlePrefab);
@@ -81,6 +89,8 @@ public class ThreeDConeDrag : MonoBehaviour {
         laserTransform.position = Vector3.Lerp(trackedObj.transform.position, hitPoint, .5f);
         laserTransform.LookAt(hitPoint);
         laserTransform.localScale = new Vector3(laserTransform.localScale.x, laserTransform.localScale.y, distance);
+        reticle.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+        teleportReticleTransform.position = hitPoint;
     }
 
     private void ShowPreLaser(Vector3 hitPoint, float distance)
@@ -89,6 +99,8 @@ public class ThreeDConeDrag : MonoBehaviour {
         preLaserTransform.position = Vector3.Lerp(trackedObj.transform.position, hitPoint, .5f);
         preLaserTransform.LookAt(hitPoint);
         preLaserTransform.localScale = new Vector3(laserTransform.localScale.x, laserTransform.localScale.y, distance);
+        reticle.gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        teleportReticleTransform.position = hitPoint;
     }
 
     // Update is called once per frame
@@ -100,7 +112,7 @@ public class ThreeDConeDrag : MonoBehaviour {
         {
             triggerDown = false;
             laser.SetActive(false);
-            reticle.SetActive(false);
+            //reticle.SetActive(false);
 
             stepFilter = new OneEuroFilter(filterFrequency);
             angleFilter = new OneEuroFilter(filterFrequency);
@@ -159,9 +171,9 @@ public class ThreeDConeDrag : MonoBehaviour {
                 movementRatio = (difAngle / baseAngle);
 
             if(movementRatio > 0)
-                movementRatio = smoothstep(0.0f, 1.0f, movementRatio);
+                movementRatio = smoothstep(0.0f, 0.9f, movementRatio);
             else
-                movementRatio = smoothstep(-1.0f, 0.0f, movementRatio) - 1;
+                movementRatio = smoothstep(-0.7f, 0.0f, movementRatio) - 1;
 
             movementRatio = stepFilter.Filter(movementRatio);
 
@@ -181,8 +193,13 @@ public class ThreeDConeDrag : MonoBehaviour {
             else 
                 lastMovementRatio = movementRatio;
 
+            float transDist;
+
             //Determine how far the transform should move
-            float transDist = posRatio * grabPath.magnitude;
+            if (grabPath.magnitude > cone_length)
+                transDist = posRatio * grabPath.magnitude;
+            else
+                transDist = posRatio * cone_length;
 
             //Direct that distance in the correct direction
             Vector3 movementPath = grabPath.normalized * transDist;
@@ -218,11 +235,12 @@ public class ThreeDConeDrag : MonoBehaviour {
               
             float difYAngle = (Mathf.Rad2Deg * forAngle) - (Mathf.Rad2Deg * pathAngle);
 
+            /*
             if (difYAngle > 10)
                 difYAngle = 10;
             else if (difYAngle < -10)
                 difYAngle = -10;
-            
+            */
 
 
             localPlane.transform.position = triPath;

@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
+
 public class ArcLaserPointer : MonoBehaviour
 {
 
     private SteamVR_TrackedObject trackedObj;
-    public GameObject laserPrefab; //change to list? List<GameObject> laserPrefab?
+    public GameObject laserPrefab; 
     private List<GameObject> laser;
-    private List<Transform> laserTransform;
+    private Transform[] laserTransform;
     private Vector3 hitPoint;
     public Terrain Terr;
     public Generate_Terrain map;
+    public GameObject arcIntersectionPrefab;
 
     public Transform cameraRigTransform;
     public GameObject teleportReticlePrefab;
@@ -32,18 +34,36 @@ public class ArcLaserPointer : MonoBehaviour
     private Vector2 teleTimeType;
     private Vector3[] points;
 
+    OneEuroFilter<Vector3> posFilter;
+    OneEuroFilter angleFilter;
+    float filterFrequency = 60f; //play around with this or find alternative
+
+    //need filter to stabilize the arc, play around with applying different structures to the filter like above?
+
+        //TODO Add reticle to intersection, increase diameter of laser
+
     //instantiate a list of about 100 laserPrefabs to use in show.
     void Start()
     {
-        //list of lasers, instantiate a prefab each time laser.add(Instantiate(laserPrefab)
+        laser = new List<GameObject>();
+        //current unity version does not allow getting an element at index i from list?
+       
+       // GameObject[] allLasers;
+         //works instead of(Instantiate(laserPrefab));
         for (int i = 0; i < 100; i++)
         {
-            laser.Add(Instantiate(laserPrefab));
-            laserTransform.Add(laser.ElementAt(i).transform);
+            GameObject newlaser = Instantiate(laserPrefab);
+            newlaser.transform.parent = this.transform;
+            newlaser.name = "arcPiece" + i;
+            laser.Add(newlaser);
         }
-        
+
+        arcIntersectionPrefab = Instantiate(arcIntersectionPrefab);
+        reticle = Instantiate(teleportReticlePrefab);
+        teleportReticleTransform = reticle.transform;
         teleTimeType = new Vector2();
-        
+        posFilter = new OneEuroFilter<Vector3>(filterFrequency);
+        angleFilter = new OneEuroFilter(filterFrequency);
     }
 
     private SteamVR_Controller.Device Controller
@@ -87,7 +107,7 @@ public class ArcLaserPointer : MonoBehaviour
 
     }
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         
 
@@ -95,37 +115,33 @@ public class ArcLaserPointer : MonoBehaviour
         {
             triggerDown = true;
             RaycastHit hit;
-
-            /* Insert functionality to get the arc angle/pass that through to the show laser, and
-            /pass hit point through to Teleport.
-            */
             
-            //these should be used in the teleport, not in the raycast?
-            velocity.X = 1;
-            velocity.Y = 1;
+            //values to tweak for better range of arc/precision.
+            velocity.x = 2.75f;
+            velocity.y = .25f;
 
 
-            points = arcPoints(velocity.X, velocity.Y);
-            //needs own function, possibly use existing function Physics.Raycast if statement in update function in LaserPointer
+            points = arcPoints(velocity.x, velocity.y);
 
             int hitnum;
-            //arcedRaycast(points, out hitnum);
+
 
            
-            
-// End of additional input in this function
-
+            hit = ArcedRaycast(points, out hitnum);
             //change paraments
-            if (hit = ArcedRaycast(points, out hitnum))
+            //ShowArcedLaser(points, hitPoint, hitnum, hit);
+           if (hit.collider != null) 
             {
+               // UnityEngine.Debug.Log("hit.collider is not null");
                 hitPoint = hit.point;
                 ShowArcedLaser(points, hitPoint, hitnum, hit);
 
+                // End of additional input in this function
                 //don't touch
                 reticle.SetActive(true);
                 if (hit.collider.gameObject.name == "miniMap")
                 {
-
+                  //  UnityEngine.Debug.Log("hit collides with miniMap");
                     hitPoint = hit.collider.gameObject.transform.InverseTransformPoint(hitPoint);
                     hitPoint = (hitPoint * map.map_width);
                     hitPoint.x = hitPoint.x - (Generate_Terrain.tile_width);
@@ -154,10 +170,14 @@ public class ArcLaserPointer : MonoBehaviour
                 shouldTeleport = true;
 
             }
+           // UnityEngine.Debug.Log("hit.collider is null");
         }
         else // 3
         {
-            laser.SetActive(false);
+            for (int i = 0; i < laser.Count; i++)
+            {
+                laser[i].SetActive(false);
+            }
             reticle.SetActive(false);
         }
         if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Trigger) && shouldTeleport)
@@ -167,22 +187,31 @@ public class ArcLaserPointer : MonoBehaviour
         }
     }
 
+
     Vector3 pointValues(float velocityX, float velocityY, float t, float g, float theta)
     {
-        
+        Vector3 forward = posFilter.Filter<Vector3>(transform.forward);
         
         Vector3 vector = new Vector3();
-        vector.y = Controller.position.Y + velocity.Y * 1 * Math.sin(theta) - 0.5 * g * t ^ 2;
-        vector.x = Controller.position.X + Controller.position.normalized.x * velocity.X;
-        vector.z = Controller.position.Z + Controller.position.normalized.z * velocity.X;
+        
+        vector.y = transform.position.y + (velocity.y * t * Mathf.Sin(theta) - (0.5f * g * (t*t)));
+        vector.x = (transform.position.x + (forward.x * velocity.x)*t);
+        vector.z = (transform.position.z + (forward.z * velocity.x)*t);
 
+        //UnityEngine.Debug.Log("Vector in pointValues = " + vector);
         return vector;
     }
-
+    //qaulitative feedback, comparison total time and preference, writeup (implementation) go full low lvl details
     Vector3[] arcPoints(float velocityX, float velocityY)
     {
-        float theta = (90 - Vector3.Angle(Controller.Forward, Vector3.down));
-        float g = 1;
+        Vector3 forward = posFilter.Filter<Vector3>(transform.forward);
+        
+        float theta = ( Vector3.Angle(forward, Vector3.down) - 90);
+        float rad = theta * Mathf.Deg2Rad;//radian conversion to stabilize occilation.
+        
+
+        theta = angleFilter.Filter(rad);
+        float g = 0.06f; //change this for stronger arc
         Vector3 initial = new Vector3 {};
         initial.x = 0;
         initial.y = 0;
@@ -196,39 +225,70 @@ public class ArcLaserPointer : MonoBehaviour
        
         for (int j = 0; j < 100; j++)
         {
-            Vector3 pointVector = pointValues(1, 1, j, g, theta);
+            Vector3 pointVector = pointValues(velocityX, velocityY, j, g, theta);
             P[j] = pointVector;
 
+           
+            // UnityEngine.Debug.Log("arcPoints loop j = " + j +" arcPoints P[j] = " + P[j]);
         }
+       
+        
         return P;
     }
     //can't be a copy of showLaser, change functionality to go through the list
     //check generate coins to see
     //pi - pi+1 for the position and look at for showarcedlaser
+    //intersection reticle, resize cylinders further away
     private void ShowArcedLaser(Vector3[] p, Vector3 hitPoint, int hitnumber, RaycastHit hit)
     {
+       int pSize= p.Length - 1;
+        
+        for(int i = 0; i < hitnumber; i++ )
+        {
+            laser[i].SetActive(true); 
+        }
 
-        //replace hit.distance with hitnumber?
-        laser.SetActive(true); //needs to set active the list of lasers
+        for(int i = hitnumber; i < pSize; i++)
+        {
+            laser[i].SetActive(false);
+        }
+        //remove for further implementation
+        // hitnumber = 100;
+        arcIntersectionPrefab.SetActive(true);
         if (hitnumber != -1)
         {
+            //UnityEngine.Debug.Log("Hitnumber != -1");
 
-            
-            for (int i = 0; i < hitnumber; i++)
+
+            for (int i = 0; i < hitnumber-1; i++)
             {
+               // UnityEngine.Debug.Log("Getting into show loop.");
                float hitLength = (p[i] - p[i + 1]).magnitude;
                 
               
-                    laserTransform[i].position = Vector3.Lerp(p[i], p[i + 1], .5f);
-                    laserTransform[i].LookAt(p[i + 1]);
-                    laserTransform[i].localScale = new Vector3(laserTransform[i].localScale.x, laserTransform[i].localScale.y,
+                    laser[i].transform.position = Vector3.Lerp(p[i], p[i + 1], .5f);
+                    
+                    laser[i].transform.localScale = new Vector3(laser[i].transform.localScale.x, laser[i].transform.localScale.y,
                        hitLength );
                 
             }
-            laserTransform[hitnumber].position = Vector3.Lerp(p[i], hitPoint, .5f);
-            laserTransform[hitnumber].LookAt(hitPoint);
-            laserTransform[hitnumber].localScale = new Vector3(laserTransform[hitnumber].localScale.x, laserTransform[hitnumber].localScale.y,
+            for (int i = 0; i < hitnumber - 1; i++)
+            {
+                laser[i].transform.LookAt(p[i+1]);
+            }
+
+            laser[hitnumber-1].transform.position = Vector3.Lerp(p[hitnumber-1], hitPoint, .5f);
+            laser[hitnumber-1].transform.LookAt(hitPoint);
+            laser[hitnumber-1].transform.localScale = new Vector3(laser[hitnumber-1].transform.localScale.x, laser[hitnumber-1].transform.localScale.y,
                 hit.distance);
+
+           /*Needs a prefab that can appear at end and bigger.
+            * arcIntersectionPrefab.transform.position = Vector3.Lerp(p[hitnumber - 1], hitPoint, .5f);
+            *arcIntersectionPrefab.transform.LookAt(hitPoint);
+            *arcIntersectionPrefab.transform.localScale = new Vector3(laser[hitnumber - 1].transform.localScale.x, laser[hitnumber - 1].transform.localScale.y,
+            *hit.distance) * 2;
+            */
+
         }
 
     }
@@ -245,17 +305,22 @@ public class ArcLaserPointer : MonoBehaviour
         
         for (int i = 1; i < p.Length; i++)
         {
-           path = p[i - 1] - p[i];
+            path = p[i - 1] - p[i];
             
             if (Physics.Raycast(p[i], path, out hit, path.magnitude))
             {
+                //UnityEngine.Debug.Log("Hit = " + hit);
+
                 hitnumber = i;
+                //UnityEngine.Debug.Log("hit is not default value(null)");
+
                 return hit;
             }
 
            
         }
         hitnumber = -1;
+       // UnityEngine.Debug.Log("hit is default value(null)");
         return hit;
     }
 }

@@ -277,8 +277,18 @@ public class coinBank : MonoBehaviour {
                     funcController.toggleTeleportation(false);
                     FunctionController.teleportGEnabled = false;
                 }
+                if (fs.Contains("a"))
+                {
+                    funcController.toggleArcTeleportation(true);
+                    FunctionController.arcTeleportGEnabled = true;
+                }
+                else
+                {
+                    funcController.toggleArcTeleportation(false);
+                    FunctionController.arcTeleportGEnabled = false;
+                }
 
-                //add arc toggle/flag
+               
                 if (fs.Contains("m"))
                 {
                     FunctionController.enableMiniMap = false;

@@ -31,7 +31,6 @@ public class Logger : MonoBehaviour {
     public static List<Vector2> grabs;
     public static List<Vector2> flyTouchs;
     public static List<Vector2> teleports;
-    public static List<Vector2> arcTeleports;
 
     public static List<posTime> rigPositions;
     public static List<posTime> leftHPositions;
@@ -53,7 +52,6 @@ public class Logger : MonoBehaviour {
         grabs = new List<Vector2>();
         flyTouchs = new List<Vector2>();
         teleports = new List<Vector2>();
-        arcTeleports = new List<Vector2>();
         cTime = nTime = cTimeU = nTimeU = Time.time;
 
 
@@ -196,24 +194,6 @@ public class Logger : MonoBehaviour {
                 sw.Write(string.Format(format_string, System.DateTime.Now.ToString(), bank.participant_name, event_type, t.x, t.x, "", "", "", "", "", "", bank.condition + bank.mapCond, bank.trial_number, nav_Search, bank.block ,bank.tName, FunctionController.miniMapGEnabled));
             }
             teleports.Clear();
-
-            //addition for arc Teleports
-            if (1 / Time.smoothDeltaTime <= 50)
-                yield return null;
-            foreach (Vector2 t in arcTeleports)
-            {
-                string event_type = "";
-                if (t.y == 1)
-                {
-                    event_type = "ArcTeleportMM";
-                }
-                else
-                {
-                    event_type = "ArcTeleport";
-                }
-                sw.Write(string.Format(format_string, System.DateTime.Now.ToString(), bank.participant_name, event_type, t.x, t.x, "", "", "", "", "", "", bank.condition + bank.mapCond, bank.trial_number, nav_Search, bank.block, bank.tName, FunctionController.miniMapGEnabled));
-            }
-            arcTeleports.Clear();
         }
     }
 
@@ -274,20 +254,6 @@ public class Logger : MonoBehaviour {
                 sw.Write(string.Format(format_string, System.DateTime.Now.ToString(), bank.participant_name, event_type, t.x, t.x, "", "", "", "", "", "", bank.condition + bank.mapCond, bank.trial_number, nav_Search, bank.block ,bank.tName, FunctionController.miniMapGEnabled));
             }
             teleports.Clear();
-            foreach (Vector2 t in arcTeleports)
-            {
-                string event_type = "";
-                if (t.y == 1)
-                {
-                    event_type = "ArcTeleportMM";
-                }
-                else
-                {
-                    event_type = "ArcTeleport";
-                }
-                sw.Write(string.Format(format_string, System.DateTime.Now.ToString(), bank.participant_name, event_type, t.x, t.x, "", "", "", "", "", "", bank.condition + bank.mapCond, bank.trial_number, nav_Search, bank.block, bank.tName, FunctionController.miniMapGEnabled));
-            }
-            arcTeleports.Clear();
         }
     }
 }

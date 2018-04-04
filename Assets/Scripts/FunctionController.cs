@@ -53,7 +53,7 @@ public class FunctionController : MonoBehaviour {
 
     //Whether arc teleportation is currently available
     private static bool enableArcTeleport;
-    public LaserPointer laserPointerRight2;
+    public LaserPointer arcLaserPointerRight;
     //Whether the minimap is currently available
     public static bool enableMiniMap;
     public GameObject miniMap;
@@ -160,7 +160,7 @@ public class FunctionController : MonoBehaviour {
     public void toggleArcTeleportation(bool state)
     {
         enableArcTeleport = state;
-        laserPointerRight2.enabled = state;
+        arcLaserPointerRight.enabled = state;
     }
 
 
