@@ -14,7 +14,6 @@ public class ArcLaserPointer : MonoBehaviour
     private Vector3 hitPoint;
     public Terrain Terr;
     public Generate_Terrain map;
-    public GameObject arcIntersectionPrefab;
 
     public Transform cameraRigTransform;
     public GameObject teleportReticlePrefab;
@@ -36,9 +35,7 @@ public class ArcLaserPointer : MonoBehaviour
 
     OneEuroFilter<Vector3> posFilter;
     OneEuroFilter angleFilter;
-    float filterFrequency = 60f; //play around with this or find alternative
-
-    //need filter to stabilize the arc, play around with applying different structures to the filter like above?
+    float filterFrequency = 60f;
 
         //TODO Add reticle to intersection, increase diameter of laser
 
@@ -57,8 +54,6 @@ public class ArcLaserPointer : MonoBehaviour
             newlaser.name = "arcPiece" + i;
             laser.Add(newlaser);
         }
-
-        arcIntersectionPrefab = Instantiate(arcIntersectionPrefab);
         reticle = Instantiate(teleportReticlePrefab);
         teleportReticleTransform = reticle.transform;
         teleTimeType = new Vector2();
@@ -107,7 +102,7 @@ public class ArcLaserPointer : MonoBehaviour
 
     }
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         
 
@@ -117,8 +112,8 @@ public class ArcLaserPointer : MonoBehaviour
             RaycastHit hit;
             
             //values to tweak for better range of arc/precision.
-            velocity.x = 2.75f;
-            velocity.y = .25f;
+            velocity.x = 3.5f;
+            velocity.y = 1.5f;
 
 
             points = arcPoints(velocity.x, velocity.y);
@@ -166,7 +161,7 @@ public class ArcLaserPointer : MonoBehaviour
                     teleTimeType.y = 0;
                 }
                 //Debug.Log(hitPoint.x + " " + hitPoint.y + " " + hitPoint.z);
-                teleportReticleTransform.position = hitPoint + teleportReticleOffset;
+               // teleportReticleTransform.position = hitPoint + teleportReticleOffset;
                 shouldTeleport = true;
 
             }
@@ -195,8 +190,11 @@ public class ArcLaserPointer : MonoBehaviour
         Vector3 vector = new Vector3();
         
         vector.y = transform.position.y + (velocity.y * t * Mathf.Sin(theta) - (0.5f * g * (t*t)));
-        vector.x = (transform.position.x + (forward.x * velocity.x)*t);
-        vector.z = (transform.position.z + (forward.z * velocity.x)*t);
+
+        //2*T to increase the length of the arc, made it a bit unstable at close proximity, change value
+        //Longer the length becomes, the less precise the end point.
+        vector.x = (transform.position.x + (forward.x * velocity.x)*1.5f*t);
+        vector.z = (transform.position.z + (forward.z * velocity.x)*1.5f*t);
 
         //UnityEngine.Debug.Log("Vector in pointValues = " + vector);
         return vector;
@@ -252,9 +250,7 @@ public class ArcLaserPointer : MonoBehaviour
         {
             laser[i].SetActive(false);
         }
-        //remove for further implementation
-        // hitnumber = 100;
-        arcIntersectionPrefab.SetActive(true);
+        
         if (hitnumber != -1)
         {
             //UnityEngine.Debug.Log("Hitnumber != -1");
@@ -281,14 +277,9 @@ public class ArcLaserPointer : MonoBehaviour
             laser[hitnumber-1].transform.LookAt(hitPoint);
             laser[hitnumber-1].transform.localScale = new Vector3(laser[hitnumber-1].transform.localScale.x, laser[hitnumber-1].transform.localScale.y,
                 hit.distance);
-
-           /*Needs a prefab that can appear at end and bigger.
-            * arcIntersectionPrefab.transform.position = Vector3.Lerp(p[hitnumber - 1], hitPoint, .5f);
-            *arcIntersectionPrefab.transform.LookAt(hitPoint);
-            *arcIntersectionPrefab.transform.localScale = new Vector3(laser[hitnumber - 1].transform.localScale.x, laser[hitnumber - 1].transform.localScale.y,
-            *hit.distance) * 2;
-            */
-
+            reticle.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+            teleportReticleTransform.position = hitPoint;
+            
         }
 
     }
