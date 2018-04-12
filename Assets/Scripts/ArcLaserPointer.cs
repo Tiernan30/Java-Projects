@@ -25,6 +25,7 @@ public class ArcLaserPointer : MonoBehaviour
 
     private bool shouldTeleport;
     private bool triggerDown;
+    private bool hitMiniMap;
 
     private Vector2 velocity; //constant x/y acceleration values
     private int x;
@@ -51,9 +52,11 @@ public class ArcLaserPointer : MonoBehaviour
         {
             GameObject newlaser = Instantiate(laserPrefab);
             newlaser.transform.parent = this.transform;
+            newlaser.transform.localScale = new Vector3(0.15f, 0.15f, 0);
             newlaser.name = "arcPiece" + i;
             laser.Add(newlaser);
         }
+        //change reticle scale to make it bigger, here or in unity inspector.
         reticle = Instantiate(teleportReticlePrefab);
         teleportReticleTransform = reticle.transform;
         teleTimeType = new Vector2();
@@ -104,8 +107,8 @@ public class ArcLaserPointer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
 
+        hitMiniMap = false;
         if (Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger) || triggerDown)
         {
             triggerDown = true;
@@ -134,9 +137,11 @@ public class ArcLaserPointer : MonoBehaviour
                 // End of additional input in this function
                 //don't touch
                 reticle.SetActive(true);
+                
                 if (hit.collider.gameObject.name == "miniMap")
                 {
-                  //  UnityEngine.Debug.Log("hit collides with miniMap");
+                    //  UnityEngine.Debug.Log("hit collides with miniMap");
+                    hitMiniMap = true;
                     hitPoint = hit.collider.gameObject.transform.InverseTransformPoint(hitPoint);
                     hitPoint = (hitPoint * map.map_width);
                     hitPoint.x = hitPoint.x - (Generate_Terrain.tile_width);
@@ -149,6 +154,7 @@ public class ArcLaserPointer : MonoBehaviour
                 }
                 else if (hit.collider.gameObject.GetComponent<monoMiniMap>() != null)
                 {
+                    hitMiniMap = true;
                     monoMiniMap miniMap = hit.collider.gameObject.GetComponent<monoMiniMap>();
                     hitPoint = hit.collider.gameObject.transform.InverseTransformPoint(hitPoint);
                     hitPoint = (hitPoint * miniMap.mainMap.terrainData.size.x);
@@ -243,7 +249,13 @@ public class ArcLaserPointer : MonoBehaviour
         
         for(int i = 0; i < hitnumber; i++ )
         {
-            laser[i].SetActive(true); 
+            laser[i].SetActive(true);
+            //float distance = (transform.position - p[i]).magnitude;
+            //float smoothDistance = smoothstep(-1, 200, distance);
+
+            laser[i].transform.localScale = new Vector3((i+1) *0.015f, (i+1)* 0.015f,
+                       0);
+
         }
 
         for(int i = hitnumber; i < pSize; i++)
@@ -277,8 +289,14 @@ public class ArcLaserPointer : MonoBehaviour
             laser[hitnumber-1].transform.LookAt(hitPoint);
             laser[hitnumber-1].transform.localScale = new Vector3(laser[hitnumber-1].transform.localScale.x, laser[hitnumber-1].transform.localScale.y,
                 hit.distance);
-            reticle.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
-            teleportReticleTransform.position = hitPoint;
+
+            if (!hitMiniMap)
+            {
+                UnityEngine.Debug.Log(hitMiniMap);
+                reticle.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+                teleportReticleTransform.position = hitPoint;
+            }
+            else reticle.SetActive(false);
             
         }
 
@@ -313,6 +331,25 @@ public class ArcLaserPointer : MonoBehaviour
         hitnumber = -1;
        // UnityEngine.Debug.Log("hit is default value(null)");
         return hit;
+    }
+
+    //Using Smoothest step by Kyle McDonald
+    float smoothstep(float edge0, float edge1, float x)
+    {
+        // Scale, bias and saturate x to 0..1 range
+        x = clamp((x - edge0) / (edge1 - edge0), 0.0f, 1.0f);
+        // Evaluate polynomial
+        return (-20 * Mathf.Pow(x, 7)) + (70 * Mathf.Pow(x, 6)) - (84 * Mathf.Pow(x, 5)) + (35 * Mathf.Pow(x, 4));
+        //return x * x * (3 - 2 * x);
+    }
+
+    float clamp(float x, float lowerlimit, float upperlimit)
+    {
+        if (x < lowerlimit)
+            x = lowerlimit;
+        if (x > upperlimit)
+            x = upperlimit;
+        return x;
     }
 }
 

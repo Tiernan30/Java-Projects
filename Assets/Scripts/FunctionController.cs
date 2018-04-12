@@ -79,6 +79,7 @@ public class FunctionController : MonoBehaviour {
     public bool boolMovement = false;
     public void toggleMovement(bool state)
     {
+        Debug.Log("Togglemovement: " + state);
         moveEnabled = state;
         if (flightGEnabled)
             enableFlying = state;
@@ -103,7 +104,7 @@ public class FunctionController : MonoBehaviour {
         //Debug.Log("Flight from movement set to: " + enableFlying.ToString());
 
         //controllerGrabLeft.ReleaseObject();
-        controllerGrabRight.ReleaseObject();
+       // controllerGrabRight.ReleaseObject();
 
         controllerGrabLeft.enabled = enableTokenMove;
         controllerGrabRight.enabled = enableTokenMove;
@@ -152,6 +153,7 @@ public class FunctionController : MonoBehaviour {
     public bool boolTeleportation = false;
     public void toggleTeleportation(bool state)
     {
+        Debug.Log("Made it to teleport! " + state);
         enableTeleport = state;
         laserPointerRight.enabled = state;
     }

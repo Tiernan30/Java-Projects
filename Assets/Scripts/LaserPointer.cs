@@ -50,6 +50,8 @@ public class LaserPointer : MonoBehaviour {
         laserTransform.LookAt(hitPoint);
         laserTransform.localScale = new Vector3(laserTransform.localScale.x, laserTransform.localScale.y,
             hit.distance);
+        reticle.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+        teleportReticleTransform.position = hitPoint;
     }
     private void Teleport()
     {
@@ -127,5 +129,14 @@ public class LaserPointer : MonoBehaviour {
             triggerDown = false;
             Teleport();
         }
+    }
+    void OnDisable()
+    {
+        Debug.Log("I was disabled.");
+
+    }
+    void OnEnable()
+    {
+        Debug.Log("I was enabled");
     }
 }
